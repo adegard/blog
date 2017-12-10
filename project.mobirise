@@ -22,7 +22,7 @@
       }
     },
     "versionFirst": "3.12.1",
-    "uniqCompNum": 1,
+    "uniqCompNum": 5,
     "versionPublish": "3.12.1",
     "path": "@PROJECT_PATH@"
   },
@@ -128,6 +128,39 @@
           },
           "brand": "<a class=\"navbar-caption text-black\" data-app-btn=\"true\" data-app-selector=\".navbar-caption\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">Arnaud DEGARDIN</a>",
           "items": "<li class=\"nav-item\"><a data-app-btn=\"true\" class=\"nav-link link\" href=\"https://twitter.com/ArnaudDegardin\">&nbsp;<span class=\"socicon socicon-twitter mbr-iconfont mbr-iconfont-btn\"></span></a></li><li class=\"nav-item\"><a data-app-btn=\"true\" class=\"nav-link link\" href=\"https://www.linkedin.com/in/arnauddegardin/\" target=\"_blank\"><span class=\"socicon socicon-linkedin mbr-iconfont mbr-iconfont-btn\"></span></a></li><li class=\"nav-item nav-btn\"><a data-app-btn=\"true\" data-button=\"\" data-app-selector=\".btn\" class=\"nav-link btn btn-white btn-white-outline\" href=\"https://mobirise.com/\">DOWNLOAD</a></li>"
+        },
+        {
+          "_styles": {
+            ".mbr-section-title, .mbr-section-subtitle": {
+              "text-align": "center"
+            }
+          },
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "header3",
+          "_anchor": "header3-2",
+          "_params": {
+            "paddingTop": 1,
+            "paddingBottom": 1,
+            "bgColor": "#fff",
+            "showMeta": true
+          },
+          "title": "Title with Solid Background Color",
+          "meta": "By John Smith posted July 20, 2016"
+        },
+        {
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "content1",
+          "_anchor": "content1-4",
+          "_params": {
+            "paddingTop": 1,
+            "paddingBottom": 1,
+            "bgColor": "#fff"
+          },
+          "text": "<p><a href=\"#\">     <!-- let's call the following div as the POPUP FRAME --> </a></p><div id=\"popup\"><a href=\"#\">      <!-- and here comes the image -->     <img src=\"http://i.imgur.com/cVJrCHU.jpg\" alt=\"popup\">          <!-- Now this is the button which closes the popup-->         <button id=\"close\">Close button</button>          <!-- and finally we close the POPUP FRAME-->         <!-- everything on it will show up within the popup so you can add more things not just an image --> </a></div><a href=\"#\">  <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>  <script> //with this first line we're saying: \"when the page loads (document is ready) run the following script\" $(document).ready(function () {     //select the POPUP FRAME and show it     $(\"#popup\").hide().fadeIn(1000);      //close the POPUP if the button with id=\"close\" is clicked     $(\"#close\").on(\"click\", function (e) {         e.preventDefault();         $(\"#popup\").fadeOut(1000);     }); });  /*we need to style the popup with CSS so it is placed as a popup does*/ #popup {     display:none;     position:absolute;     margin:0 auto;     top: 50%;     left: 50%;     transform: translate(-50%, -50%);     box-shadow: 0px 0px 50px 2px #000; } </script>  </a><p></p>"
         },
         {
           "alias": "social-feed",
