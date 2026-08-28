@@ -1,111 +1,1041 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!-- Site made with Mobirise Website Builder v3.12.1, https://mobirise.com -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v3.12.1, mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="assets/images/ad-600x600-128x128.png" type="image/x-icon">
-  <meta name="description" content="">
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;subset=latin">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
-  <link rel="stylesheet" href="assets/bootstrap-material-design-font/css/material.css">
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/animate.css/animate.min.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-  <link rel="stylesheet" href="assets/social-feed-plugin/jquery.socialfeed.css">
-  <link rel="stylesheet" href="assets/social-feed-plugin/style.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
-  
-  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>adegard — projects & portfolio</title>
+<meta name="description" content="adegard — open-source projects: Android apps, terminal tools, web experiments and more.">
+<link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/23522577?v=4">
+<style>
+  :root {
+    --bg: #0e1116;
+    --bg2: #131820;
+    --card: #171d27;
+    --border: #232b38;
+    --text: #e6eaf0;
+    --muted: #9aa7b8;
+    --accent: #4cc2ff;
+    --accent2: #7c6cff;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(14,17,22,.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+  .brand { font-weight: 700; font-size: 1.05rem; letter-spacing: .3px; display: flex; align-items: center; }
+  .brand img { width: 26px; height: 26px; border-radius: 50%; margin-right: 9px; border: 1px solid var(--border); }
+  .brand span { color: var(--accent); }
+  .navlinks { display: flex; gap: 18px; font-size: .9rem; color: var(--muted); }
+  .navlinks a:hover { color: var(--text); }
+
+  header.hero { padding: 72px 0 30px; text-align: center; }
+  .hero h1 { font-size: 2.6rem; letter-spacing: .5px; }
+  .hero .role { color: var(--accent); font-weight: 600; margin-top: 6px; }
+  .hero p.tagline { color: var(--muted); max-width: 640px; margin: 14px auto 0; }
+  .hero .socials { margin-top: 20px; display: flex; gap: 14px; justify-content: center; }
+  .hero .socials a {
+    border: 1px solid var(--border); background: var(--card);
+    padding: 8px 16px; border-radius: 999px; font-size: .85rem; color: var(--muted);
+    transition: .15s;
+  }
+  .hero .socials a:hover { color: var(--text); border-color: var(--accent); }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+    margin: 40px 0 10px;
+  }
+  .stat { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 10px; text-align: center; }
+  .stat-n { font-size: 1.6rem; font-weight: 800; color: var(--accent); }
+  .stat-l { font-size: .8rem; color: var(--muted); margin-top: 2px; }
+
+  section.block { padding: 46px 0; }
+  h2.section-title { font-size: 1.5rem; margin-bottom: 22px; }
+  h2.section-title::after { content: ""; display: block; width: 46px; height: 3px; margin-top: 8px; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+
+  .fgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .fcard {
+    background: linear-gradient(160deg, var(--card), var(--bg2));
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 22px; display: flex; flex-direction: column; gap: 10px;
+    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .fcard:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(76,194,255,.08); }
+  .fcard-top { display: flex; align-items: center; gap: 8px; }
+  .fcard-star { color: var(--accent); font-size: .8rem; }
+  .fcard h3 { font-size: 1.08rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .fcard p { color: var(--muted); font-size: .92rem; flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: .72rem; padding: 3px 9px; border-radius: 999px;
+    background: rgba(124,108,255,.12); color: #b6aaff; border: 1px solid rgba(124,108,255,.3);
+  }
+  .fcard-go { color: var(--accent); font-size: .85rem; font-weight: 600; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; }
+  .fbtn {
+    background: var(--card); color: var(--muted); border: 1px solid var(--border);
+    padding: 7px 14px; border-radius: 999px; font-size: .82rem; cursor: pointer; transition: .15s;
+  }
+  .fbtn:hover { color: var(--text); border-color: var(--accent); }
+  .fbtn.active { background: var(--accent); border-color: var(--accent); color: #04121c; font-weight: 700; }
+
+  .cat { margin-bottom: 52px; }
+  .cat-title { font-size: 1.3rem; margin-bottom: 16px; }
+  .cat-title .count {
+    font-size: .85rem; vertical-align: middle; margin-left: 8px; color: var(--muted);
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px;
+  }
+  .section-note { color: var(--muted); font-size: .85rem; margin: -10px 0 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 18px; display: flex; flex-direction: column; gap: 8px; transition: .15s ease;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .thumb { width: 100%; height: 130px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); background: var(--bg2); }
+  .fcard .thumb { height: 170px; margin: -22px -22px 14px; width: calc(100% + 44px); border: none; border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }
+  .card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .card h3 { font-size: .98rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  .badge {
+    font-size: .7rem; color: var(--muted); background: var(--bg2);
+    border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px;
+    display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .card p { color: var(--muted); font-size: .87rem; flex: 1; }
+  .card-go { color: var(--accent); font-size: .8rem; font-weight: 600; opacity: .8; }
+  .card:hover .card-go { opacity: 1; }
+
+  footer { border-top: 1px solid var(--border); padding: 34px 0 50px; color: var(--muted); font-size: .85rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; }
+
+  @media (max-width: 720px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    nav .navlinks { display: none; }
+  }
+</style>
 </head>
 <body>
-<section id="menu-0">
 
-    <nav class="navbar navbar-dropdown navbar-fixed-top">
-        <div class="container">
-
-            <div class="mbr-table">
-                <div class="mbr-table-cell">
-
-                    <div class="navbar-brand">
-                        <a href="index.html" class="navbar-logo"><img src="assets/images/ad-600x600-128x128.png" alt="Mobirise"></a>
-                        <a class="navbar-caption text-black" href="https://mobirise.com">Arnaud DEGARDIN</a>
-                    </div>
-
-                </div>
-                <div class="mbr-table-cell">
-
-                    <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-                        <div class="hamburger-icon"></div>
-                    </button>
-
-                    <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar"><li class="nav-item"><a class="nav-link link" href="https://twitter.com/ArnaudDegardin">&nbsp;<span class="socicon socicon-twitter mbr-iconfont mbr-iconfont-btn"></span></a></li><li class="nav-item"><a class="nav-link link" href="https://www.linkedin.com/in/arnauddegardin/" target="_blank"><span class="socicon socicon-linkedin mbr-iconfont mbr-iconfont-btn"></span></a></li><li class="nav-item nav-btn"><a class="nav-link btn btn-white btn-white-outline" href="https://mobirise.com/">DOWNLOAD</a></li></ul>
-                    <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-                        <div class="close-icon"></div>
-                    </button>
-
-                </div>
-            </div>
-
-        </div>
-    </nav>
-
-</section>
-
-<section class="engine"><a rel="external" href="https://mobirise.com">Mobirise Website Builder</a></section><section class="mbr-section mbr-section__container article mbr-after-navbar" id="header3-2" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h3 class="mbr-section-title display-2">Title with Solid Background Color</h3>
-                <small class="mbr-section-subtitle">By John Smith posted July 20, 2016</small>
-            </div>
-        </div>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="https://avatars.githubusercontent.com/u/23522577?v=4" alt="adegard logo"><span>adegard</span> · projects</a>
+    <div class="navlinks">
+      <a href="#featured">Featured</a>
+      <a href="#projects">All projects</a>
+      <a href="https://github.com/adegard" target="_blank" rel="noopener">GitHub</a>
     </div>
-</section>
+  </div>
+</nav>
 
-<section class="mbr-section article mbr-section__container" id="content1-4" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 lead"><p><a href="#">     <!-- let's call the following div as the POPUP FRAME --> </a></p><div id="popup"><a href="#">      <!-- and here comes the image -->     <img src="http://i.imgur.com/cVJrCHU.jpg" alt="popup">          <!-- Now this is the button which closes the popup-->         <button id="close">Close button</button>          <!-- and finally we close the POPUP FRAME-->         <!-- everything on it will show up within the popup so you can add more things not just an image --> </a></div><a href="#">  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  <script> //with this first line we're saying: "when the page loads (document is ready) run the following script" $(document).ready(function () {     //select the POPUP FRAME and show it     $("#popup").hide().fadeIn(1000);      //close the POPUP if the button with id="close" is clicked     $("#close").on("click", function (e) {         e.preventDefault();         $("#popup").fadeOut(1000);     }); });  /*we need to style the popup with CSS so it is placed as a popup does*/ #popup {     display:none;     position:absolute;     margin:0 auto;     top: 50%;     left: 50%;     transform: translate(-50%, -50%);     box-shadow: 0px 0px 50px 2px #000; } </script>  </a><p></p></div>
-        </div>
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1>adegard</h1>
+    <div class="role">Android · Python · Web · Automation · AI experiments</div>
+    <p class="tagline">Everything here is open source. Most of it is built to solve a real, everyday problem — on a phone, in a terminal, or on my own hardware. No tracking, no cloud, no accounts.</p>
+    <div class="socials">
+      <a href="https://github.com/adegard" target="_blank" rel="noopener">GitHub · @adegard</a>
     </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-n">92</div><div class="stat-l">public repos</div></div>
+          <div class="stat"><div class="stat-n">16</div><div class="stat-l">Android apps</div></div>
+          <div class="stat"><div class="stat-n">9</div><div class="stat-l">terminal tools</div></div>
+          <div class="stat"><div class="stat-n">JavaScript</div><div class="stat-l">most used language</div></div>
+          <div class="stat"><div class="stat-n">2016–2026</div><div class="stat-l">years tinkering</div></div>
+    </div>
+  </div>
+</header>
 
+<section class="block" id="featured">
+  <div class="wrap">
+    <h2 class="section-title">Featured projects</h2>
+    <div class="fgrid">
+      <a class="fcard" href="https://github.com/adegard/PixelCam" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/PixelCam/HEAD/docs/screenshot.png" alt="PixelCam screenshot">
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>PixelCam</h3>
+        </div>
+        <p>A camera app that puts Pixel-grade photographic styles (HDR, night, portrait) on plain Android, with no tracking.</p>
+        <div class="tags"><span class="tag">Kotlin</span><span class="tag">CameraX</span><span class="tag">Mobile</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+
+      <a class="fcard" href="https://github.com/adegard/HealthX" target="_blank" rel="noopener">
+        
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>HealthX</h3>
+        </div>
+        <p>A step tracker that runs entirely on your phone — hardware step counting, targets & achievements, no watch, no cloud.</p>
+        <div class="tags"><span class="tag">Kotlin</span><span class="tag">Privacy</span><span class="tag">Mobile</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+
+      <a class="fcard" href="https://github.com/adegard/meteo-cesate" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/meteo-cesate/HEAD/docs/screenshot.png" alt="meteo-cesate screenshot">
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>meteo-cesate</h3>
+        </div>
+        <p>Weather with worldwide city search, 24h + 7-day forecasts, and thunderstorm alerts pushed straight to your phone.</p>
+        <div class="tags"><span class="tag">Kotlin</span><span class="tag">Open-Meteo</span><span class="tag">Mobile</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+
+      <a class="fcard" href="https://github.com/adegard/autotrader-android" target="_blank" rel="noopener">
+        
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>autotrader-android</h3>
+        </div>
+        <p>An automatic trading bot: momentum + trend + sentiment stock selection with virtual money, or real trading via Saxo.</p>
+        <div class="tags"><span class="tag">Kotlin</span><span class="tag">Finance</span><span class="tag">Mobile</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+
+      <a class="fcard" href="https://github.com/adegard/epubreader" target="_blank" rel="noopener">
+        
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>epubreader</h3>
+        </div>
+        <p>A full EPUB reader — text-to-speech, bookmarks, themes and a library — in a clean swipe-driven Android app.</p>
+        <div class="tags"><span class="tag">Kotlin</span><span class="tag">TTS</span><span class="tag">Mobile</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+
+      <a class="fcard" href="https://github.com/adegard/blockblast" target="_blank" rel="noopener">
+        
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>blockblast</h3>
+        </div>
+        <p>A polished Block Blast puzzle game built with a custom Canvas renderer and zero external dependencies.</p>
+        <div class="tags"><span class="tag">Kotlin</span><span class="tag">Game</span><span class="tag">Mobile</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+
+      <a class="fcard" href="https://github.com/adegard/ytmusic-apk" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/ytmusic-apk/HEAD/docs/screenshot.png" alt="ytmusic-apk screenshot">
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>ytmusic-apk</h3>
+        </div>
+        <p>Search and stream YouTube songs on-device — no server, no account, no login. Background playback included.</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Audio</span><span class="tag">Mobile</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+
+      <a class="fcard" href="https://github.com/adegard/shell-agent" target="_blank" rel="noopener">
+        
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>shell-agent</h3>
+        </div>
+        <p>An opencode-style coding agent for Termux powered entirely by Ollama. Reads, writes and runs code on your phone.</p>
+        <div class="tags"><span class="tag">Shell</span><span class="tag">AI</span><span class="tag">Termux</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+
+      <a class="fcard" href="https://github.com/adegard/GPS-Nav-HTML" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/GPS-Nav-HTML/HEAD/screenshots/Screenshot_20260807-101315.png" alt="GPS-Nav-HTML screenshot">
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>GPS-Nav-HTML</h3>
+        </div>
+        <p>A single-file, offline GPS navigator: live tracking, POI search and turn-by-turn routing — no app store needed.</p>
+        <div class="tags"><span class="tag">HTML</span><span class="tag">Offline</span><span class="tag">Web</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+
+      <a class="fcard" href="https://github.com/adegard/No-Cookie-Browser" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/No-Cookie-Browser/HEAD/screen.jpg" alt="No-Cookie-Browser screenshot">
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>No-Cookie-Browser</h3>
+        </div>
+        <p>A retro 90s-era GTK browser that runs ephemeral — no cookies, cache or history, perfect for the old internet feel.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">GTK</span><span class="tag">Privacy</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+
+      <a class="fcard" href="https://github.com/adegard/amazon-tracker" target="_blank" rel="noopener">
+        
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>amazon-tracker</h3>
+        </div>
+        <p>Browse Amazon with tracker & ad blocking and get price-drop alerts across ten Amazon regions.</p>
+        <div class="tags"><span class="tag">Kotlin</span><span class="tag">Shopping</span><span class="tag">Mobile</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+
+      <a class="fcard" href="https://github.com/adegard/RadioStreamer" target="_blank" rel="noopener">
+        
+        <div class="fcard-top">
+          <span class="fcard-star">★</span>
+          <h3>RadioStreamer</h3>
+        </div>
+        <p>An ad-free internet radio app: stream any station, keep listening with the screen off, manage your own station list.</p>
+        <div class="tags"><span class="tag">Kotlin</span><span class="tag">Audio</span><span class="tag">Mobile</span></div>
+        <span class="fcard-go">Open in GitHub →</span>
+      </a>
+    </div>
+  </div>
 </section>
 
-<section class="mbr-social-feed loading" id="feed-0" data-youtube="UCj_yWYv_K-WJ4PARgEzP07Q" data-facebook="" data-twitter="ArnaudDegardin" data-google="+DegardinArnaud" data-posts="5" style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 40px;">
+<section class="block" id="projects">
+  <div class="wrap">
+    <h2 class="section-title">All projects</h2>
+    <div class="filters">
+      <button class="fbtn active" data-filter="all">All</button>
+      <button class="fbtn" data-filter="android">Android Apps</button>
+      <button class="fbtn" data-filter="terminal">Terminal & Termux Tools</button>
+      <button class="fbtn" data-filter="web">Web Apps & Self-Hosted</button>
+      <button class="fbtn" data-filter="gas">Google Apps Script & Sheet Tools</button>
+      <button class="fbtn" data-filter="browser">Browser Extensions & Bookmarklets</button>
+      <button class="fbtn" data-filter="windows">Windows & Automation Scripts</button>
+      <button class="fbtn" data-filter="ai">AI & Data Experiments</button>
+      <button class="fbtn" data-filter="linux">Linux & DIY Hardware</button>
+      <button class="fbtn" data-filter="meta">Experiments & Misc</button>
+    </div>
     
-    <img class="social-feed-container-loading" alt="" src="assets/images/loading.svg">
-    <div class="social-feed-container">
-    </div>
+    <section class="cat" id="cat-android">
+      <h2 class="cat-title">Android Apps <span class="count">16</span></h2>
+      
+      <div class="grid">
+      <a class="card" href="https://github.com/adegard/PixelCam" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/PixelCam/HEAD/docs/screenshot.png" alt="PixelCam screenshot">
+        <div class="card-head"><h3>PixelCam</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Privacy-friendly camera that brings Pixel photographic styles — HDR, night, portrait — to plain Android and iOS feel to the viewfinder.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/HealthX" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>HealthX</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Step tracker that runs entirely on the phone: no watch, no account, no cloud. Optional self-hosted Home Assistant sync.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/meteo-cesate" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/meteo-cesate/HEAD/docs/screenshot.png" alt="meteo-cesate screenshot">
+        <div class="card-head"><h3>meteo-cesate</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Ad-free, tracking-free weather app: 24-hour + 7-day forecast, worldwide cities, and thunderstorm alerts.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/epubreader" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>epubreader</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>EPUB reader with text-to-speech, page-fitting layout, bookmarks, themes and a built-in library.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/blockblast" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>blockblast</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Block Blast-style puzzle game with a custom Canvas renderer, combo scoring and zero external dependencies.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/GMaps-WV-Nav" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/GMaps-WV-Nav/HEAD/screenshots/navigation.png" alt="GMaps-WV-Nav screenshot">
+        <div class="card-head"><h3>GMaps-WV-Nav</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Navigation-first Google Maps wrapper focused on a clean, distraction-free driving experience.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/autotrader-android" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>autotrader-android</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Automatic trading bot for Android: momentum + trend stock selection with virtual money, or real trading via Saxo.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/WhatsAppWrapper" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>WhatsAppWrapper</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Lightweight WebView wrapper around WhatsApp.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/RadioStreamer" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>RadioStreamer</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Ad-free internet radio: stream any station, background playback, and your own reinstall-proof station list.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/amazon-tracker" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>amazon-tracker</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Browse Amazon with built-in tracker/ad-blocking and get price-drop alerts across 10 Amazon regions.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/ImageCompressor" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/ImageCompressor/HEAD/Screenshot_20260711-192514.png" alt="ImageCompressor screenshot">
+        <div class="card-head"><h3>ImageCompressor</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Gallery viewer with built-in image compression — keep control of your data.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/TextBrowserApp" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/TextBrowserApp/HEAD/screenshot.png" alt="TextBrowserApp screenshot">
+        <div class="card-head"><h3>TextBrowserApp</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Text-focused browser app for Android with read-aloud (TTS).</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/oled-keyboard" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>oled-keyboard</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>OLED-themed Android keyboard: Italian QWERTY, accented letters, no suggestions, light-on-black themes.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/ha" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>ha</h3><span class="badge"><span class="dot" style="background:#7F52FF"></span>Kotlin</span></div>
+        <p>Home Assistant client made for Fire TV Stick.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/mots-crois-s-android" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/mots-crois-s-android/HEAD/Screenshot_20260726-142401.png" alt="mots-crois-s-android screenshot">
+        <div class="card-head"><h3>mots-crois-s-android</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>French crossword (mots croisés) app.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/ytmusic-apk" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/ytmusic-apk/HEAD/docs/screenshot.png" alt="ytmusic-apk screenshot">
+        <div class="card-head"><h3>ytmusic-apk</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Search and stream YouTube music on-device — no server, no account, background playback, plus an iOS companion.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat" id="cat-terminal">
+      <h2 class="cat-title">Terminal & Termux Tools <span class="count">9</span></h2>
+      
+      <div class="grid">
+      <a class="card" href="https://github.com/adegard/shell-agent" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>shell-agent</h3><span class="badge"><span class="dot" style="background:#89E051"></span>Shell</span></div>
+        <p>Local coding assistant for Termux: an opencode-style agent loop powered by Ollama, fully on-device. Windows setup included.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/terminal_text_browser" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/terminal_text_browser/HEAD/screen.jpg" alt="terminal_text_browser screenshot">
+        <div class="card-head"><h3>terminal_text_browser</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Web browser that lives in your terminal — also runs in Termux.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/terminal_epub_reader" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>terminal_epub_reader</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Simple EPUB reader for the terminal and Termux.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/terminal_radio" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>terminal_radio</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Radio player for the terminal.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Python_radio_player" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Python_radio_player</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Simple terminal radio player.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Python_Music" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Python_Music</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>YouTube music player for the terminal.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Terminal-Bricks-Breaker" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Terminal-Bricks-Breaker</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Bricks-breaker game played in pure terminal.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Termux-Package-Manager-TUI" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Termux-Package-Manager-TUI</h3><span class="badge"><span class="dot" style="background:#89E051"></span>Shell</span></div>
+        <p>Text-user interface for Termux package management.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Termux_backup" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Termux_backup</h3><span class="badge"><span class="dot" style="background:#89E051"></span>Shell</span></div>
+        <p>Backup and restore scripts for Termux.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat" id="cat-web">
+      <h2 class="cat-title">Web Apps & Self-Hosted <span class="count">9</span></h2>
+      
+      <div class="grid">
+      <a class="card" href="https://github.com/adegard/GPS-Nav-HTML" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/GPS-Nav-HTML/HEAD/screenshots/Screenshot_20260807-101315.png" alt="GPS-Nav-HTML screenshot">
+        <div class="card-head"><h3>GPS-Nav-HTML</h3><span class="badge"><span class="dot" style="background:#E34C26"></span>HTML</span></div>
+        <p>Single-file, offline-first GPS navigator: live tracking, POI search and turn-by-turn car/walking routing.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/No-Cookie-Browser" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/No-Cookie-Browser/HEAD/screen.jpg" alt="No-Cookie-Browser screenshot">
+        <div class="card-head"><h3>No-Cookie-Browser</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Retro 90s-style GTK browser that runs ephemeral — no cookies, cache or history by default.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/HTML-photo-gallery" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>HTML-photo-gallery</h3><span class="badge"><span class="dot" style="background:#E34C26"></span>HTML</span></div>
+        <p>Self-contained photo gallery in a single HTML file.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Strmhm" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Strmhm</h3><span class="badge"><span class="dot" style="background:#E34C26"></span>HTML</span></div>
+        <p>Self-hosted streaming start page (Streaming home).</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/webreader" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/webreader/HEAD/Immagine%202025-06-12%20120020.jpg" alt="webreader screenshot">
+        <div class="card-head"><h3>webreader</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Ebook-style reader for the web.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/PHP_drive_sync" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>PHP_drive_sync</h3><span class="badge"><span class="dot" style="background:#4F5D95"></span>PHP</span></div>
+        <p>PHP + Bash web UI to compare and sync local folders with Google Drive via rclone.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/PHP_files_manager" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>PHP_files_manager</h3><span class="badge"><span class="dot" style="background:#4F5D95"></span>PHP</span></div>
+        <p>Lightweight PHP file manager for a home server.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/PHP_server_ebooks_reader" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>PHP_server_ebooks_reader</h3><span class="badge"><span class="dot" style="background:#4F5D95"></span>PHP</span></div>
+        <p>Simple self-hosted EPUB reader server.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/PHP_Photo_Gallery-" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="https://raw.githubusercontent.com/adegard/PHP_Photo_Gallery-/HEAD/screen.jpg" alt="PHP_Photo_Gallery- screenshot">
+        <div class="card-head"><h3>PHP_Photo_Gallery-</h3><span class="badge"><span class="dot" style="background:#4F5D95"></span>PHP</span></div>
+        <p>Ultra-light photo gallery server (< 50 kB), no database, auto thumbnails.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat" id="cat-gas">
+      <h2 class="cat-title">Google Apps Script & Sheet Tools <span class="count">9</span></h2>
+      
+      <div class="grid">
+      <a class="card" href="https://github.com/adegard/Formula_Updater" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Formula_Updater</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Google Sheets add-on that reformats complex formulas into readable, commented multi-line blocks.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Engineering_Gsheet_PFD" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Engineering_Gsheet_PFD</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Engineering project workbook tooling for Google Sheets.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/CoolPropAPI" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>CoolPropAPI</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>CoolProp thermodynamic property data exposed to Google Apps Script / Sheets.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Geocode.gs" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Geocode.gs</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>WMO climate API helpers as a Google Apps Script.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/gsheet_formula_beautifier-in-GAS-" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>gsheet_formula_beautifier-in-GAS-</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Formula beautifier implemented in Google Apps Script.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/gsheet_notepad-plus-plus" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>gsheet_notepad-plus-plus</h3><span class="badge"><span class="dot" style="background:#8B949E"></span>Config</span></div>
+        <p>Google Sheets formula syntax highlighting for Notepad++.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/GAS_scripts" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>GAS_scripts</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Collection of Google Apps Script utilities for Sheets.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/P5-js-Pop-up-gsheet-GAS-" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>P5-js-Pop-up-gsheet-GAS-</h3><span class="badge"><span class="dot" style="background:#E34C26"></span>HTML</span></div>
+        <p>P5.js pop-up UI driven from a Google Sheet.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/P5.JS-in-Google-Apps" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>P5.JS-in-Google-Apps</h3><span class="badge"><span class="dot" style="background:#E34C26"></span>HTML</span></div>
+        <p>Running P5.js inside Google Apps.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat" id="cat-browser">
+      <h2 class="cat-title">Browser Extensions & Bookmarklets <span class="count">5</span></h2>
+      
+      <div class="grid">
+      <a class="card" href="https://github.com/adegard/Remove_Ads_Chrome_extension" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Remove_Ads_Chrome_extension</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Chrome extension that removes ads from web pages.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Chrome_extension_Linkedin_cleaning" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Chrome_extension_Linkedin_cleaning</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Chrome extension to declutter the LinkedIn feed.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Chrome_extension_Weather_gmail" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Chrome_extension_Weather_gmail</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Demo extension that fetches weather and live-edits Gmail's DOM.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/usefull_bookmarklets" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>usefull_bookmarklets</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Handy collection of bookmarklets.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Bookmarklet-to-clip-webpages-to-google-docs" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Bookmarklet-to-clip-webpages-to-google-docs</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Bookmarklet to clip whole web pages into Google Docs.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat" id="cat-windows">
+      <h2 class="cat-title">Windows & Automation Scripts <span class="count">17</span></h2>
+      
+      <div class="grid">
+      <a class="card" href="https://github.com/adegard/WinScripts" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>WinScripts</h3><span class="badge"><span class="dot" style="background:#012456"></span>PowerShell</span></div>
+        <p>Collection of PowerShell utilities.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/MyChocolateyApps" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>MyChocolateyApps</h3><span class="badge"><span class="dot" style="background:#012456"></span>PowerShell</span></div>
+        <p>Recommended Chocolatey app lineup for fresh Windows installs.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/AutomaticDesktopBackground" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>AutomaticDesktopBackground</h3><span class="badge"><span class="dot" style="background:#012456"></span>PowerShell</span></div>
+        <p>Automatic desktop wallpaper rotation in PowerShell.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/xls_macro_save_value" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>xls_macro_save_value</h3><span class="badge"><span class="dot" style="background:#867DB1"></span>VBA</span></div>
+        <p>Excel VBA macro to snapshot cell values and re-import them into another workbook.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/vbs_scripts" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>vbs_scripts</h3><span class="badge"><span class="dot" style="background:#3A6EA5"></span>VBScript</span></div>
+        <p>VBScript utilities.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/AHK_SCRIPTS" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>AHK_SCRIPTS</h3><span class="badge"><span class="dot" style="background:#6594B9"></span>AutoHotkey</span></div>
+        <p>AutoHotkey macro recorder scripts.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/AHK-Tasks-scheduler" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>AHK-Tasks-scheduler</h3><span class="badge"><span class="dot" style="background:#6594B9"></span>AutoHotkey</span></div>
+        <p>Task scheduler written in AutoHotkey.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/AutoRisponderTool" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>AutoRisponderTool</h3><span class="badge"><span class="dot" style="background:#6594B9"></span>AutoHotkey</span></div>
+        <p>Autoresponder tooling for growth hacking, in AHK.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Chrome-Steps-Recorder" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Chrome-Steps-Recorder</h3><span class="badge"><span class="dot" style="background:#6594B9"></span>AutoHotkey</span></div>
+        <p>Step recorder for Chrome driven by AutoHotkey.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/imacros" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>imacros</h3><span class="badge"><span class="dot" style="background:#6594B9"></span>AutoHotkey</span></div>
+        <p>iMacros installation and quick scripts.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/TagIE.ahk" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>TagIE.ahk</h3><span class="badge"><span class="dot" style="background:#6594B9"></span>AutoHotkey</span></div>
+        <p>TagIE — Internet Explorer web-process automation in AutoHotkey.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/TagIE_Scripts" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>TagIE_Scripts</h3><span class="badge"><span class="dot" style="background:#6594B9"></span>AutoHotkey</span></div>
+        <p>TagIE browser automation examples and strategies.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/tagui_scripts" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>tagui_scripts</h3><span class="badge"><span class="dot" style="background:#6594B9"></span>AutoHotkey</span></div>
+        <p>TagUI editor and browser automation scripts for Chrome/Firefox.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/PRT_AUTOHOTKEY" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>PRT_AUTOHOTKEY</h3><span class="badge"><span class="dot" style="background:#6594B9"></span>AutoHotkey</span></div>
+        <p>Backtesting automation for ProRealTime.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/YouTubeBox" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>YouTubeBox</h3><span class="badge"><span class="dot" style="background:#6594B9"></span>AutoHotkey</span></div>
+        <p>YouTube box player for Windows.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/PRT_CODE" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>PRT_CODE</h3><span class="badge"><span class="dot" style="background:#8B949E"></span>Config</span></div>
+        <p>Notepad++ syntax highlighter for ProRealTime code.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/scrcpy_parameters" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>scrcpy_parameters</h3><span class="badge"><span class="dot" style="background:#8B949E"></span>Config</span></div>
+        <p>Recommended scrcpy mirroring parameters on Windows.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat" id="cat-ai">
+      <h2 class="cat-title">AI & Data Experiments <span class="count">9</span></h2>
+      
+      <div class="grid">
+      <a class="card" href="https://github.com/adegard/AI-book-generator" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>AI-book-generator</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Generates complete books using AI, driven from Python.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/cover_generator" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>cover_generator</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Stable Diffusion (SDXL) ebook cover generator — Kaggle notebook.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Python_Chiller_cycle" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Python_Chiller_cycle</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Chiller refrigeration-cycle analysis in Python.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/R_STAT" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>R_STAT</h3><span class="badge"><span class="dot" style="background:#198CE7"></span>R</span></div>
+        <p>Statistical studies with R.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/PRT" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>PRT</h3><span class="badge"><span class="dot" style="background:#198CE7"></span>R</span></div>
+        <p>Machine-learning experiments on ProRealTime data.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/MQL4_CODE" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>MQL4_CODE</h3><span class="badge"><span class="dot" style="background:#E24F22"></span>MQL4</span></div>
+        <p>MetaTrader 4 MQL4 indicators and strategies.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Curl_Dom_Parser" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Curl_Dom_Parser</h3><span class="badge"><span class="dot" style="background:#4F5D95"></span>PHP</span></div>
+        <p>Web scraping with cURL + DOM parser.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/SMS-Marketing" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>SMS-Marketing</h3><span class="badge"><span class="dot" style="background:#4F5D95"></span>PHP</span></div>
+        <p>PHP REST API to send SMS messages.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/php" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>php</h3><span class="badge"><span class="dot" style="background:#4F5D95"></span>PHP</span></div>
+        <p>Web scraping with cURL-PHP and mailer experiments.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat" id="cat-linux">
+      <h2 class="cat-title">Linux & DIY Hardware <span class="count">9</span></h2>
+      
+      <div class="grid">
+      <a class="card" href="https://github.com/adegard/linux-config-backup" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>linux-config-backup</h3><span class="badge"><span class="dot" style="background:#89E051"></span>Shell</span></div>
+        <p>Back up and restore your whole Linux config in one shot.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/bash_scripts" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>bash_scripts</h3><span class="badge"><span class="dot" style="background:#89E051"></span>Shell</span></div>
+        <p>Assorted bash recipes (Puppy Linux era).</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/python_scripts" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>python_scripts</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Assorted Python scripts.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/autobrightness_linux" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>autobrightness_linux</h3><span class="badge"><span class="dot" style="background:#3572A5"></span>Python</span></div>
+        <p>Auto-adjusts screen brightness from your webcam feed.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Hotspot_ad_blocker" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Hotspot_ad_blocker</h3><span class="badge"><span class="dot" style="background:#89E051"></span>Shell</span></div>
+        <p>DNS-filtering Wi-Fi hotspot that blocks ads for every client.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Hourly-Gmail-Pinger" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Hourly-Gmail-Pinger</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Checks Gmail on a schedule, so email comes to you instead of you hunting it.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Arduino_AND_ESP32_projects" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Arduino_AND_ESP32_projects</h3><span class="badge"><span class="dot" style="background:#F34B7D"></span>C++</span></div>
+        <p>Arduino and ESP32 hardware experiments.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Ghost5_Pen_drawing" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Ghost5_Pen_drawing</h3><span class="badge"><span class="dot" style="background:#8B949E"></span>Config</span></div>
+        <p>Pen-plotter drawings made with a Ghost 5 3D printer.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Debloat_Android_ADB" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Debloat_Android_ADB</h3><span class="badge"><span class="dot" style="background:#89E051"></span>Shell</span></div>
+        <p>ADB commands to debloat stock Android.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat" id="cat-meta">
+      <h2 class="cat-title">Experiments & Misc <span class="count">9</span></h2>
+      <p class="section-note">Small experiments, scaffolds and notes — included for completeness, not necessarily 'done' projects.</p>
+      <div class="grid">
+      <a class="card" href="https://github.com/adegard/blog" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>blog</h3><span class="badge"><span class="dot" style="background:#8B949E"></span>Docs</span></div>
+        <p>This very site — the source of my GitHub Pages blog.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/adegard.github.io" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>adegard.github.io</h3><span class="badge"><span class="dot" style="background:#E34C26"></span>HTML</span></div>
+        <p>My GitHub Pages root site.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/adegard-adegard" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>adegard-adegard</h3><span class="badge"><span class="dot" style="background:#8B949E"></span>Docs</span></div>
+        <p>Early profile/landing page experiment.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/tech-blog" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>tech-blog</h3><span class="badge"><span class="dot" style="background:#8B949E"></span>Docs</span></div>
+        <p>Tech & life reviews.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/pc-dream" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>pc-dream</h3><span class="badge"><span class="dot" style="background:#8B949E"></span>Docs</span></div>
+        <p>Idea board: Intelligent Strategies for a Smarter World.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/JS_code" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>JS_code</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>Collection of small JavaScript snippets.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/ReactTest" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>ReactTest</h3><span class="badge"><span class="dot" style="background:#F1E05A"></span>JavaScript</span></div>
+        <p>React playground / testing repo.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/Tutorial" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>Tutorial</h3><span class="badge"><span class="dot" style="background:#8B949E"></span>Docs</span></div>
+        <p>Assorted tutorial notes.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+
+      <a class="card" href="https://github.com/adegard/test" target="_blank" rel="noopener">
+        
+        <div class="card-head"><h3>test</h3><span class="badge"><span class="dot" style="background:#8B949E"></span>Misc</span></div>
+        <p>Public sandbox repo.</p>
+        <span class="card-go">View repo →</span>
+      </a>
+      </div>
+    </section>
+  </div>
 </section>
 
+<footer>
+  <div class="wrap">
+    <span>© adegard · built with plain HTML/CSS · generated from GitHub's API — August 2026</span>
+    <span><a href="https://github.com/adegard" target="_blank" rel="noopener" style="color:var(--accent)">github.com/adegard</a></span>
+  </div>
+</footer>
 
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/tether/tether.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/smooth-scroll/smooth-scroll.js"></script>
-  <script src="assets/dropdown/js/script.min.js"></script>
-  <script src="assets/touch-swipe/jquery.touch-swipe.min.js"></script>
-  <script src="assets/viewport-checker/jquery.viewportchecker.js"></script>
-  <script src="assets/social-feed-plugin/codebird.min.js"></script>
-  <script src="assets/social-feed-plugin/moment.js"></script>
-  <script src="assets/social-feed-plugin/en-gb.js"></script>
-  <script src="assets/social-feed-plugin/doT.js"></script>
-  <script src="assets/social-feed-plugin/jquery.socialfeed.js"></script>
-  <script src="assets/social-feed-plugin/main.js"></script>
-  <script src="assets/theme/js/script.js"></script>
-  
-  
-  <input name="animation" type="hidden">
-  </body>
+<script>
+  const btns = document.querySelectorAll(".fbtn");
+  const cats = document.querySelectorAll(".cat");
+  btns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      btns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      const f = btn.dataset.filter;
+      cats.forEach(c => {
+        c.style.display = (f === "all" || c.id === "cat-" + f) ? "" : "none";
+      });
+    });
+  });
+</script>
+</body>
 </html>
