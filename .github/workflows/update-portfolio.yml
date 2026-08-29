@@ -6,6 +6,9 @@ on:
     - cron: '0 6 * * 1'
   # Manual trigger: Actions tab -> "Update portfolio" -> Run workflow
   workflow_dispatch:
+  # Also run whenever master changes (validates + catches up immediately)
+  push:
+    branches: [master]
 
 permissions:
   contents: write
