@@ -1,0 +1,54 @@
+name: Update portfolio
+
+on:
+  schedule:
+    # Every Monday at 06:00 UTC (change to suit you)
+    - cron: '0 6 * * 1'
+  # Manual trigger: Actions tab -> "Update portfolio" -> Run workflow
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: portfolio-update
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out generator (master)
+        uses: actions/checkout@v4
+        with:
+          path: src
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate index.html from GitHub API
+        run: python3 src/scripts/gen_site.py -o src/index.html
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check out published site (gh-pages)
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: site
+
+      - name: Commit and push
+        run: |
+          cp src/index.html site/index.html
+          cd site
+          git config user.name "adegard[bot]"
+          git config user.email "adegard@users.noreply.github.com"
+          if git diff --quiet -- index.html; then
+            echo "no changes, nothing to publish"
+            exit 0
+          fi
+          git add index.html
+          git commit -m "portfolio: auto-update $(date -u +%Y-%m-%d)"
+          git push origin gh-pages
