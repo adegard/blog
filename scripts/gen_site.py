@@ -175,23 +175,6 @@ CURATED = {
     "test": (C_META, "Misc", "Public sandbox repo."),
 }
 
-# name -> (blurb, [tags])
-FEATURED = [
-    ("PixelCam", "A camera app that puts Pixel-grade photographic styles (HDR, night, portrait) on plain Android, with no tracking.", ["Kotlin", "CameraX", "Mobile"]),
-    ("HealthX", "A step tracker that runs entirely on your phone — hardware step counting, targets & achievements, no watch, no cloud.", ["Kotlin", "Privacy", "Mobile"]),
-    ("meteo-cesate", "Weather with worldwide city search, 24h + 7-day forecasts, and thunderstorm alerts pushed straight to your phone.", ["Kotlin", "Open-Meteo", "Mobile"]),
-    ("autotrader-android", "An automatic trading bot: momentum + trend + sentiment stock selection with virtual money, or real trading via Saxo.", ["Kotlin", "Finance", "Mobile"]),
-    ("epubreader", "A full EPUB reader — text-to-speech, bookmarks, themes and a library — in a clean swipe-driven Android app.", ["Kotlin", "TTS", "Mobile"]),
-    ("blockblast", "A polished Block Blast puzzle game built with a custom Canvas renderer and zero external dependencies.", ["Kotlin", "Game", "Mobile"]),
-    ("ytmusic-apk", "Search and stream YouTube songs on-device — no server, no account, no login. Background playback included.", ["JavaScript", "Audio", "Mobile"]),
-    ("shell-agent", "An opencode-style coding agent for Termux powered entirely by Ollama. Reads, writes and runs code on your phone.", ["Shell", "AI", "Termux"]),
-    ("GPS-Nav-HTML", "A single-file, offline GPS navigator: live tracking, POI search and turn-by-turn routing — no app store needed.", ["HTML", "Offline", "Web"]),
-    ("No-Cookie-Browser", "A retro 90s-era GTK browser that runs ephemeral — no cookies, cache or history, perfect for the old internet feel.", ["Python", "GTK", "Privacy"]),
-    ("amazon-tracker", "Browse Amazon with tracker & ad blocking and get price-drop alerts across ten Amazon regions.", ["Kotlin", "Shopping", "Mobile"]),
-    ("RadioStreamer", "An ad-free internet radio app: stream any station, keep listening with the screen off, manage your own station list.", ["Kotlin", "Audio", "Mobile"]),
-    ("RcloneRemotes", "A Kotlin/Compose Android app that manages all your cloud storage through rclone — file browser, text editor, uploads and multi-provider folder sync.", ["Kotlin", "Cloud", "Mobile"]),
-]
-
 # Repos that should never get an auto-detected screenshot thumbnail.
 SHOT_BLACKLIST = {
     "Ghost5_Pen_drawing",
@@ -429,33 +412,16 @@ def main():
     n_shots = sum(1 for it in items if it[4])
     print(f"repos: {len(items)} | with screenshots: {n_shots}")
 
-    # Assemble HTML using the same template as the static generator.
-    featured_names = {f[0] for f in FEATURED if any(it[0] == f[0] for it in items)}
-    fcards = []
-    for name, blurb, tags in FEATURED:
-        if name not in featured_names:
-            continue
-        it = next(x for x in items if x[0] == name)
-        tag_html = "".join(f'<span class="tag">{t}</span>' for t in tags)
-        fcards.append(f"""
-      <a class="fcard" href="https://github.com/{USER}/{name}" target="_blank" rel="noopener">
-        {thumb(name, it[4])}
-        <div class="fcard-top">
-          <span class="fcard-star">★</span>
-          <h3>{name}</h3>
-        </div>
-        <p>{blurb}</p>
-        <div class="tags">{tag_html}</div>
-        <span class="fcard-go">Open in GitHub →</span>
-      </a>""")
-
     cat_buttons = ['<button class="fbtn active" data-filter="all">All</button>'] + [
         f'<button class="fbtn" data-filter="{cid}">{CAT_LABELS[cid]}</button>' for cid, _ in CAT_ORDER
     ]
 
+    # Sort every category most-recently-updated first.
+    pushed_at = {name: live[name]["pushed"] for name in live}
     sections = []
     for cid, note in CAT_ORDER:
         rows = [c for c in items if c[1] == cid]
+        rows.sort(key=lambda r: pushed_at.get(r[0], ""), reverse=True)
         cards_html = "\n".join(card(r) for r in rows)
         note_html = f'<p class="section-note">{note}</p>' if note else ""
         sections.append(f"""
@@ -486,7 +452,6 @@ def main():
         f'<div class="stat"><div class="stat-n">{b}</div><div class="stat-l">{s}</div></div>'
         for b, s in stats
     )
-    fcards_html = "".join(fcards)
     cat_buttons_html = "\n      ".join(cat_buttons)
     sections_html = "".join(sections)
 
@@ -558,25 +523,6 @@ def main():
   h2.section-title {{ font-size: 1.5rem; margin-bottom: 22px; }}
   h2.section-title::after {{ content: ""; display: block; width: 46px; height: 3px; margin-top: 8px; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }}
 
-  .fgrid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }}
-  .fcard {{
-    background: linear-gradient(160deg, var(--card), var(--bg2));
-    border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 22px; display: flex; flex-direction: column; gap: 10px;
-    transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
-  }}
-  .fcard:hover {{ transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(76,194,255,.08); }}
-  .fcard-top {{ display: flex; align-items: center; gap: 8px; }}
-  .fcard-star {{ color: var(--accent); font-size: .8rem; }}
-  .fcard h3 {{ font-size: 1.08rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
-  .fcard p {{ color: var(--muted); font-size: .92rem; flex: 1; }}
-  .tags {{ display: flex; flex-wrap: wrap; gap: 6px; }}
-  .tag {{
-    font-size: .72rem; padding: 3px 9px; border-radius: 999px;
-    background: rgba(124,108,255,.12); color: #b6aaff; border: 1px solid rgba(124,108,255,.3);
-  }}
-  .fcard-go {{ color: var(--accent); font-size: .85rem; font-weight: 600; }}
-
   .filters {{ display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; }}
   .fbtn {{
     background: var(--card); color: var(--muted); border: 1px solid var(--border);
@@ -597,7 +543,6 @@ def main():
   .card {{ background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 8px; transition: .15s ease; }}
   .card:hover {{ border-color: var(--accent); transform: translateY(-2px); }}
   .thumb {{ width: 100%; height: 130px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); background: var(--bg2); }}
-  .fcard .thumb {{ height: 170px; margin: -22px -22px 14px; width: calc(100% + 44px); border: none; border-bottom: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; }}
   .card-head {{ display: flex; align-items: center; justify-content: space-between; gap: 10px; }}
   .card h3 {{ font-size: .98rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }}
   .badge {{
@@ -625,7 +570,6 @@ def main():
   <div class="wrap">
     <a class="brand" href="#top"><img src="{AVATAR_URL}" alt="adegard logo"><span>adegard</span> · projects</a>
     <div class="navlinks">
-      <a href="#featured">Featured</a>
       <a href="#projects">All projects</a>
       <a href="https://github.com/{USER}" target="_blank" rel="noopener">GitHub</a>
     </div>
@@ -645,14 +589,6 @@ def main():
     </div>
   </div>
 </header>
-
-<section class="block" id="featured">
-  <div class="wrap">
-    <h2 class="section-title">Featured projects</h2>
-    <div class="fgrid">{fcards_html}
-    </div>
-  </div>
-</section>
 
 <section class="block" id="projects">
   <div class="wrap">
