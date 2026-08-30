@@ -88,6 +88,8 @@ CURATED = {
     "mots-crois-s-android": (C_ANDROID, "JavaScript", "French crossword (mots croisés) app."),
     "ytmusic-apk": (C_ANDROID, "JavaScript", "Search and stream YouTube music on-device — no server, no account, background playback, plus an iOS companion."),
     "RcloneRemotes": (C_ANDROID, "Kotlin", "Manage cloud storage from Android via rclone: file browser, built-in text editor, upload/download and folder sync between remotes."),
+    "DecouvreurDeLivres": (C_ANDROID, "Kotlin", "Material Design Android app that scans, classifies and displays the EPUB books on your device — covers, authors, summaries, Wikipedia infos and similar-title suggestions."),
+    "PaintStudio": (C_ANDROID, "Kotlin", "Artistic drawing app: pen, airbrush, marker, eraser and flood-fill, multi-layer compositing, pinch-to-zoom up to 24x and undo/redo."),
     # Terminal
     "shell-agent": (C_TERMINAL, "Shell", "Local coding assistant for Termux: an opencode-style agent loop powered by Ollama, fully on-device. Windows setup included."),
     "terminal_text_browser": (C_TERMINAL, "Python", "Web browser that lives in your terminal — also runs in Termux."),
