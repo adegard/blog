@@ -90,6 +90,8 @@ CURATED = {
     "RcloneRemotes": (C_ANDROID, "Kotlin", "Manage cloud storage from Android via rclone: file browser, built-in text editor, upload/download and folder sync between remotes."),
     "DecouvreurDeLivres": (C_ANDROID, "Kotlin", "Material Design Android app that scans, classifies and displays the EPUB books on your device — covers, authors, summaries, Wikipedia infos and similar-title suggestions."),
     "PaintStudio": (C_ANDROID, "Kotlin", "Artistic drawing app: pen, airbrush, marker, eraser and flood-fill, multi-layer compositing, pinch-to-zoom up to 24x and undo/redo."),
+    "MiniLauncher": (C_ANDROID, "Java", "Ultra-minimal Android launcher focused on tiny resource usage and OLED black — pure framework, zero libraries, search bar and app grid."),
+    "FileManager": (C_ANDROID, "Kotlin", "Lightweight, privacy-friendly Android file manager: browse filesystem, preview/edit text, view images, extract ZIP/APK/EPUB files, and install APKs."),
     # Terminal
     "shell-agent": (C_TERMINAL, "Shell", "Local coding assistant for Termux: an opencode-style agent loop powered by Ollama, fully on-device. Windows setup included."),
     "terminal_text_browser": (C_TERMINAL, "Python", "Web browser that lives in your terminal — also runs in Termux."),
@@ -217,6 +219,8 @@ SHOT_OVERRIDES = {
     "oled-keyboard": "screenshot.png",
     "epubreader": "screenshots/app.png",
     "amazon-tracker": "docs/screen1.png",
+    "MiniLauncher": "screenshots/Screenshot_20260831-175940.png",
+    "FileManager": "docs/screenshot-main.png",
 }
 
 CAT_ORDER = [
