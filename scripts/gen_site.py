@@ -112,6 +112,9 @@ CURATED = {
     "PHP_files_manager": (C_WEB, "PHP", "Lightweight PHP file manager for a home server."),
     "PHP_server_ebooks_reader": (C_WEB, "PHP", "Simple self-hosted EPUB reader server."),
     "PHP_Photo_Gallery-": (C_WEB, "PHP", "Ultra-light photo gallery server (< 50 kB), no database, auto thumbnails."),
+    "KnowledgeBase": (C_WEB, "HTML", "Browser-based knowledge base and markdown editor with live preview: diagrams, math, AI assistance and Excel integration in a single HTML file, zero server."),
+    "3Dviewer": (C_WEB, "HTML", "Browser-based 3D CAD model viewer for STEP, IGES, STL and OBJ files — built with Three.js and OpenCascade, zero installation."),
+    "svgcad": (C_WEB, "HTML", "Professional browser-based CAD drawing app built entirely with SVG: lines, shapes, text and automatic dimensions, zero dependencies."),
     # Apps Script
     "Formula_Updater": (C_GAS, "JavaScript", "Google Sheets add-on that reformats complex formulas into readable, commented multi-line blocks."),
     "Engineering_Gsheet_PFD": (C_GAS, "JavaScript", "Engineering project workbook tooling for Google Sheets."),
@@ -202,6 +205,8 @@ SHOT_OVERRIDES = {
     "TextBrowserApp": "screenshot.png",
     "mots-crois-s-android": "Screenshot_20260726-142401.png",
     "webreader": "Immagine 2025-06-12 120020.jpg",
+    "KnowledgeBase": "screen.jpg",
+    "svgcad": "screen.jpg",
     "terminal_text_browser": "screen.jpg",
     "PHP_Photo_Gallery-": "screen.jpg",
     "blockblast": "docs/gameplay.png",
