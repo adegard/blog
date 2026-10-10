@@ -92,6 +92,8 @@ CURATED = {
     "PaintStudio": (C_ANDROID, "Kotlin", "Artistic drawing app: pen, airbrush, marker, eraser and flood-fill, multi-layer compositing, pinch-to-zoom up to 24x and undo/redo."),
     "MiniLauncher": (C_ANDROID, "Java", "Ultra-minimal Android launcher focused on tiny resource usage and OLED black — pure framework, zero libraries, search bar and app grid."),
     "FileManager": (C_ANDROID, "Kotlin", "Lightweight, privacy-friendly Android file manager: browse filesystem, preview/edit text, view images, extract ZIP/APK/EPUB files, and install APKs."),
+    "a4scanner": (C_ANDROID, "Kotlin", "Scan multiple pages with the phone camera and export a single multi-page A4 PDF — Kotlin + Jetpack Compose, signed APK included."),
+    "tv-web-viewer": (C_ANDROID, "Kotlin", "Android TV / Fire TV web viewer with built-in ad blocking, remote-friendly navigation and a configurable startup page."),
     # Terminal
     "shell-agent": (C_TERMINAL, "Shell", "Local coding assistant for Termux: an opencode-style agent loop powered by Ollama, fully on-device. Windows setup included."),
     "terminal_text_browser": (C_TERMINAL, "Python", "Web browser that lives in your terminal — also runs in Termux."),
