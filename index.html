@@ -100,6 +100,8 @@
 
   footer { border-top: 1px solid var(--border); padding: 34px 0 50px; color: var(--muted); font-size: .85rem; }
   footer .wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; }
+  footer .visits { display: inline-flex; align-items: center; gap: 7px; }
+  footer .visits img { height: 20px; border-radius: 4px; vertical-align: middle; }
 
   @media (max-width: 720px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
@@ -946,6 +948,9 @@
 <footer>
   <div class="wrap">
     <span>© adegard · built with plain HTML/CSS · auto-generated from GitHub's API</span>
+    <span class="visits">visits
+      <img src="https://hits.sh/adegard.github.io/blog.svg?style=flat-square&amp;label=&amp;color=4cc2ff" alt="total visits" loading="lazy">
+    </span>
     <span><a href="https://github.com/adegard" target="_blank" rel="noopener" style="color:var(--accent)">github.com/adegard</a></span>
   </div>
 </footer>
